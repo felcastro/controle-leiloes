@@ -7,10 +7,9 @@ public class Lance {
 	private Date data;
 	private Usuario dono;
 	
-	public Lance(double valor, Usuario dono){
+	public Lance(double valor, Usuario dono, Date data){
 		this.valor = valor;
 		this.dono = dono;
-		Date data = new Date();
 		this.data = data;
 	}
 
