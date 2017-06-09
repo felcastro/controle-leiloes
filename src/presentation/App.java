@@ -1,4 +1,4 @@
-package gui;
+package presentation;
 
 public class App {
 
