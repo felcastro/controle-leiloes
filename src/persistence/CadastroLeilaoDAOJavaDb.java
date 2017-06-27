@@ -124,7 +124,7 @@ public class CadastroLeilaoDAOJavaDb implements CadastroLeilaoDAO{
     @Override
     public List<Leilao> getTodos() throws CadastroLeilaoDAOException {
         try {
-            Connection con = ConnectionDAO.getConnection();
+            Connection con = DBCreator.getConnection();
             Statement stmt = con.createStatement();
             ResultSet resultado = stmt.executeQuery("SELECT * FROM PESSOAS");
             List<Leilao> lista = new ArrayList<Leilao>();
@@ -132,8 +132,8 @@ public class CadastroLeilaoDAOJavaDb implements CadastroLeilaoDAO{
                 String nome = resultado.getString("NOME");
                 String telefone = resultado.getString("TELEFONE");
                 String sexo = resultado.getString("SEXO");
-                Leilao p = new Leilao();
-                lista.add(p);
+                //Leilao p = new Leilao();
+                //lista.add(p);
             }
             return lista;
         } catch (SQLException ex) {

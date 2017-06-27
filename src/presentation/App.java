@@ -1,14 +1,26 @@
 package presentation;
 
+import java.io.File;
+
 import business.*;
+import persistence.DBCreator;
 
 public class App {
 
 	public static void main(String[] args) {
-		Usuario u1 = new Usuario("John Doe", "02463942002", "john@doe.com");
-		Lance lance = new Lance(1000, u1);
-		
-		System.out.println(lance.getData());
+		try {
+			String DIRETORIO_BANCO = "../controle-leiloes/derbyDB";
+			File db = new File(DIRETORIO_BANCO);
+			if (!db.exists()) {
+				DBCreator.createDB();
+			} else {
+				System.out.println("Utilizando banco ja existente...");
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			
+		}
 	}
 
 }
