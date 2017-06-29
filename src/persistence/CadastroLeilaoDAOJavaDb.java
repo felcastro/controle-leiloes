@@ -119,6 +119,25 @@ public class CadastroLeilaoDAOJavaDb implements CadastroLeilaoDAO{
 //        }   
 //    }
     
+    
+    // Exemplo de metodo para buscar o primeiro usuario(Nao vai ficar nessa classe).
+    public static Usuario getUsuarioPorId() throws CadastroLeilaoDAOException {
+    	try {
+    		Connection con = DBCreator.getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet resultado = stmt.executeQuery("SELECT * FROM Usuarios");//Realiza a busca
+            resultado.next();//Pega o proximo resultado do ResultSet (no caso o primeiro)
+            Usuario usuario = new Usuario
+            		(
+            		resultado.getString("NOME"), //Atribui o valor de colunas aos parametros do usuario.
+            		resultado.getString("CP"), 
+            		resultado.getString("EMAIL")
+            		);
+            return usuario;
+        } catch (SQLException ex) {
+            throw new CadastroLeilaoDAOException("Falha ao buscar.", ex);
+        }
+    }
 
     //TODO Adaptar metodo para leilao
     @Override
@@ -138,7 +157,8 @@ public class CadastroLeilaoDAOJavaDb implements CadastroLeilaoDAO{
             return lista;
         } catch (SQLException ex) {
             throw new CadastroLeilaoDAOException("Falha ao buscar.", ex);
-        }    }
+        }    
+    }
 
 	@Override
 	public Leilao getPorId(int id) throws CadastroLeilaoDAOException {

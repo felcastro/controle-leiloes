@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 public class DBCreator {
 	
 	//TODO Criar SQL para criação de banco
-	public static void createDB() throws CadastroLeilaoDAOException {
+	public static void createDB() throws SQLException {
         try {
         	System.out.println("Iniciando criação do banco...");
         	long startTime = System.nanoTime();
@@ -33,6 +33,8 @@ public class DBCreator {
             Statement sta = con.createStatement();
             System.out.println("Statement criado com sucesso...");
             for (int i = 0; i < sqlArray.length; i++) {
+            	System.out.println("Executando comando abaixo...");
+            	System.out.println(sqlArray[i]);
             	sta.executeUpdate(sqlArray[i]);
             }
             long endTime = System.nanoTime();
@@ -40,7 +42,8 @@ public class DBCreator {
             con.close();
             System.out.println("Banco criado com sucesso em " + ((double) endTime - startTime)/1000000000  + " segundos.");
         } catch (Exception ex) {
-            throw new CadastroLeilaoDAOException(ex.getMessage());
+        	System.out.println("Erro! Por favor delete a pasta \"derbyDB\" e tente novamente.");
+            throw new SQLException(ex.getMessage());
         }
     }
     

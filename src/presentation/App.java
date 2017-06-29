@@ -3,6 +3,7 @@ package presentation;
 import java.io.File;
 
 import business.*;
+import persistence.CadastroLeilaoDAOJavaDb;
 import persistence.DBCreator;
 
 public class App {
@@ -19,6 +20,13 @@ public class App {
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		} finally {
+			try {
+				System.out.println("Tentando buscar o primeiro valor da tabela Usuarios...");
+				Usuario usuario = CadastroLeilaoDAOJavaDb.getUsuarioPorId();
+				System.out.println(usuario.getNome() + " " + usuario.getCp() + " " + usuario.getEmail());
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
 			
 		}
 	}
