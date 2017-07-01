@@ -19,13 +19,16 @@ public class UsuarioFachada {
     
     public Usuario adicionarUsuario(String nome, String cp, String email, String senha) throws UsuarioException{
         if(!ValidadorUsuario.validaNome(nome)) {
-            throw new UsuarioException("Nome de pessoa inválido! -> " + nome);
+            throw new UsuarioException("Nome de pessoa inválido!");
         }
         if(!ValidadorUsuario.validaCP(cp)) {
-            throw new UsuarioException("Numero de cadastro de pessoa inválido! -> " + cp);
+            throw new UsuarioException("Numero de cadastro de pessoa inválido!");
         }
         if(!ValidadorUsuario.validaEmail(email)) {
-            throw new UsuarioException("E-mail inválido! -> " + email);
+            throw new UsuarioException("E-mail inválido!");
+        }
+        if(!ValidadorUsuario.validaSenha(senha)) {
+            throw new UsuarioException("Senha inválida!");
         }
         Usuario u = new Usuario(nome, cp, email, senha);
         try {

@@ -73,7 +73,7 @@ public class JanelaLogin extends JFrame {
 		
 		btnCriarConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				criarConta(e);
 			}
 		});
 	}
@@ -91,5 +91,10 @@ public class JanelaLogin extends JFrame {
 		} catch (UsuarioException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
 		}
+	}
+	
+	private void criarConta(java.awt.event.ActionEvent evt){
+		JanelaCadastroUsuario cadastro = new JanelaCadastroUsuario(controlador);
+		cadastro.setVisible(true);
 	}
 }
