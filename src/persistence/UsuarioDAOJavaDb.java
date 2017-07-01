@@ -6,7 +6,6 @@ import java.util.List;
 
 import business.Usuario;
 import business.UsuarioDAO;
-import business.UsuarioException;
 
 public class UsuarioDAOJavaDb implements UsuarioDAO {
 	

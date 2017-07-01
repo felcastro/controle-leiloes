@@ -2,8 +2,6 @@ package presentation;
 
 import java.io.File;
 
-import business.*;
-import persistence.CadastroLeilaoDAOJavaDb;
 import persistence.DBCreator;
 
 public class App {
