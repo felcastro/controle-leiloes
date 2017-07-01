@@ -17,16 +17,11 @@ public class App {
 			} else {
 				System.out.println("Utilizando banco ja existente...");
 			}
+			JanelaLogin login = new JanelaLogin();
+			login.setVisible(true);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		} finally {
-			try {
-				System.out.println("Tentando buscar o primeiro valor da tabela Usuarios...");
-				Usuario usuario = CadastroLeilaoDAOJavaDb.getUsuarioPorId();
-				System.out.println(usuario.getNome() + " " + usuario.getCp() + " " + usuario.getEmail());
-			} catch (Exception ex) {
-				System.out.println(ex.getMessage());
-			}
 			
 		}
 	}

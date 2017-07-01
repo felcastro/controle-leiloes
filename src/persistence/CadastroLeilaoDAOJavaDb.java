@@ -131,7 +131,8 @@ public class CadastroLeilaoDAOJavaDb implements CadastroLeilaoDAO{
             		(
             		resultado.getString("NOME"), //Atribui o valor de colunas aos parametros do usuario.
             		resultado.getString("CP"), 
-            		resultado.getString("EMAIL")
+            		resultado.getString("EMAIL"),
+            		resultado.getString("SENHA")
             		);
             return usuario;
         } catch (SQLException ex) {
