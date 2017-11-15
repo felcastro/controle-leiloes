@@ -22,7 +22,7 @@ public class UsuarioFachada {
             throw new UsuarioException("Nome de pessoa inválido!");
         }
         if(!ValidadorUsuario.validaCP(cp)) {
-            throw new UsuarioException("Numero de cadastro de pessoa inválido!");
+            throw new UsuarioException("Numero de cadastro de usuario inválido!");
         }
         if(!ValidadorUsuario.validaEmail(email)) {
             throw new UsuarioException("E-mail inválido!");
@@ -38,7 +38,7 @@ public class UsuarioFachada {
             }
             return null;
         } catch (UsuarioDAOException e) {
-            throw new UsuarioException("Falha ao adicionar pessoa!", e);
+            throw new UsuarioException("Falha ao adicionar usuario!", e);
         }
     }
     
@@ -46,7 +46,7 @@ public class UsuarioFachada {
     	try {
             return dao.getPorLogin(email, senha);
         } catch (UsuarioDAOException e) {
-            throw new UsuarioException("Falha ao buscar pessoas!", e);
+            throw new UsuarioException("Falha ao buscar usuario!", e);
         }
     }
 
@@ -54,7 +54,7 @@ public class UsuarioFachada {
         try {
             return dao.getTodos();
         } catch (UsuarioDAOException e) {
-            throw new UsuarioException("Falha ao buscar pessoas!", e);
+            throw new UsuarioException("Falha ao buscar usuario!", e);
         }
     }
 	

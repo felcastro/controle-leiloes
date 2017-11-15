@@ -1,8 +1,16 @@
 package business;
 
 public class Usuario {
-	private String nome, cp, email, senha;
+	private String id, nome, cp, email, senha;
 	//cp = cadastro de pessoa (fisica ou juridica)
+	
+	public Usuario(String id, String nome, String cp, String email, String senha){
+		this.id = id;
+		this.nome = nome;
+		this.cp = cp;
+		this.email = email;
+		this.senha = senha;
+	}
 	
 	public Usuario(String nome, String cp, String email, String senha){
 		this.nome = nome;
@@ -27,6 +35,10 @@ public class Usuario {
 		return senha;
 	}
 
+	public String getId() {
+		return id;
+	}
+	
 	public String toString() {
 		String str = "[" + nome + "," + cp + "," + email + "]";
 		return str;

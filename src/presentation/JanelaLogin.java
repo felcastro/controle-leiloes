@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import business.LeilaoException;
 import business.Usuario;
 import business.UsuarioException;
 
@@ -84,16 +85,20 @@ public class JanelaLogin extends JFrame {
 			String senha = txtSenha.getText();
 			Usuario usuario = controlador.getLogin(email, senha);
 			if (usuario != null) {
-				JOptionPane.showMessageDialog(null, "Usuario encontrado!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				JanelaHome home = new JanelaHome(usuario);
+				this.setVisible(false);
+				home.setVisible(true);
 			} else {
 				JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos!", "Erro", JOptionPane.WARNING_MESSAGE);
 			}
 		} catch (UsuarioException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+		} catch (LeilaoException e) {
+			e.printStackTrace();
 		}
 	}
 	
-	private void criarConta(java.awt.event.ActionEvent evt){
+	private void criarConta(java.awt.event.ActionEvent evt) {
 		JanelaCadastroUsuario cadastro = new JanelaCadastroUsuario(controlador);
 		cadastro.setVisible(true);
 	}

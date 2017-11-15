@@ -35,5 +35,10 @@ public class Item {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	
+	public String toString() {
+		String str = "Item: " + descricaoBreve + ", " + descricaoCompleta + " - " + "Categoria: " + categoria.getCategoria();
+		return str;
+	}
 
 }

@@ -1,13 +1,15 @@
 package business;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Lance {
 	private double valor;
-	private Date data;
-	private Usuario dono;
+	private Timestamp data;
+	private String dono, donoId;
 	
-	public Lance(double valor, Usuario dono, Date data){
+	public Lance(double valor, String dono, String donoId, Timestamp data){
+		this.donoId = donoId;
 		this.valor = valor;
 		this.dono = dono;
 		this.data = data;
@@ -21,7 +23,16 @@ public class Lance {
 		return data;
 	}
 
-	public Usuario getDono() {
+	public String getDono() {
 		return dono;
+	}
+	
+	public String getDonoId() {
+		return donoId;
+	}
+	
+	public String toString() {
+		String str = "Dono: " + dono + ", Valor: " + valor + ", Data: " + data.toLocaleString();
+		return str;
 	}
 }

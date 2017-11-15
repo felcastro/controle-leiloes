@@ -56,11 +56,12 @@ public class UsuarioDAOJavaDb implements UsuarioDAO {
             ResultSet resultado = stmt.executeQuery();
             Usuario u = null;
             if(resultado.next()) {
+            	String id = resultado.getString("ID");
                 String nome = resultado.getString("NOME");
                 String cp = resultado.getString("CP");
                 String emailResultado = resultado.getString("EMAIL");
                 String senhaResultado = resultado.getString("SENHA");
-                u = new Usuario(nome, cp, emailResultado, senhaResultado);
+                u = new Usuario(id, nome, cp, emailResultado, senhaResultado);
             }
             return u;
         } catch (SQLException ex) {
